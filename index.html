@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Panda tumse kuch poochna chahta hai 🐼💕</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Pacifico&display=swap" rel="stylesheet">
+<style>
+:root{
+  --rose:#ff4f81; --peach:#ffb48a; --lav:#b48cff; --sky:#7fd6ff; --cream:#fff4f8; --ink:#4a1a33;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+*,*::before,*::after{box-sizing:inherit}
+html,body{margin:0;min-height:100%}
+body{
+  font-family:"Baloo 2","Segoe UI",system-ui,sans-serif;
+  color:var(--ink);
+  background:linear-gradient(135deg,#ff9ac1,#ffc3a0 30%,#d9b3ff 65%,#9fe0ff);
+  background-size:300% 300%;
+  animation:bg 14s ease infinite;
+  min-height:100vh;
+  display:flex;align-items:center;justify-content:center;
+  padding:16px;
+  overflow-x:hidden;
+}
+@keyframes bg{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+.hearts{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0}
+.hearts span{position:absolute;bottom:-40px;animation:rise linear forwards;opacity:.8}
+@keyframes rise{to{transform:translateY(-115vh) rotate(25deg);opacity:0}}
+main{position:relative;z-index:1;width:100%;max-width:440px;text-align:center}
+.card{
+  background:rgba(255,244,248,.82);
+  backdrop-filter:blur(8px);
+  border-radius:36px;
+  padding:22px 20px 26px;
+  box-shadow:0 20px 50px rgba(255,79,129,.35),0 0 0 4px rgba(255,255,255,.6) inset;
+}
+.panda{width:190px;height:190px;margin:0 auto -6px;animation:bob 2.6s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-8px) rotate(-2deg)}}
+.bubble{
+  position:relative;background:#fff;border-radius:26px;padding:18px 16px 16px;margin:14px 0 18px;
+  box-shadow:0 8px 20px rgba(180,140,255,.35);
+  min-height:130px;display:flex;flex-direction:column;justify-content:center;gap:8px;
+}
+.bubble::before{
+  content:"";position:absolute;top:-12px;left:50%;margin-left:-14px;
+  border:14px solid transparent;border-top:0;border-bottom-color:#fff;
+}
+.tag{
+  align-self:center;background:linear-gradient(90deg,var(--rose),var(--lav));
+  color:#fff;font-weight:800;font-size:1rem;padding:2px 16px;border-radius:999px;
+}
+.q{font-size:1.4rem;font-weight:700;line-height:1.35;margin:0}
+.btns{display:flex;gap:12px;justify-content:center}
+button{
+  font:inherit;font-weight:800;font-size:1.15rem;border:0;cursor:pointer;
+  padding:12px 26px;border-radius:999px;color:#fff;min-width:130px;
+  transition:transform .15s;
+}
+button:active{transform:scale(.93)}
+button:focus-visible{outline:4px solid var(--ink);outline-offset:3px}
+.yes{background:linear-gradient(135deg,#ff4f81,#ff8fab);box-shadow:0 8px 18px rgba(255,79,129,.5)}
+.no{background:linear-gradient(135deg,#8f6bff,#b48cff);box-shadow:0 8px 18px rgba(143,107,255,.45)}
+.dots{display:flex;gap:7px;justify-content:center;margin-top:18px}
+.dots i{width:10px;height:10px;border-radius:50%;background:#fff;box-shadow:0 0 0 2px #ffc2d6 inset;transition:.3s}
+.dots i.on{background:var(--rose);box-shadow:none;transform:scale(1.25)}
+.final{display:none}
+.final h1{font-family:Pacifico,"Brush Script MT",cursive;font-weight:400;font-size:1.9rem;line-height:1.4;color:var(--rose);margin:10px 0 6px}
+.final p{font-size:1.25rem;font-weight:700;margin:6px 0}
+.names{font-size:1.05rem;color:#8f3a62;margin-top:10px}
+.show{display:block;animation:pop .7s cubic-bezier(.2,1.6,.4,1)}
+@keyframes pop{from{transform:scale(.6);opacity:0}to{transform:scale(1);opacity:1}}
+.swap{animation:swap .35s ease}
+@keyframes swap{from{transform:translateY(10px);opacity:0}to{transform:none;opacity:1}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+</head>
+<body>
+<div class="hearts" id="hearts" aria-hidden="true"></div>
+<main>
+  <div class="card">
+    <svg class="panda" viewBox="0 0 200 200" role="img" aria-label="Cute panda">
+      <circle cx="48" cy="46" r="24" fill="#2a2030"/><circle cx="152" cy="46" r="24" fill="#2a2030"/>
+      <circle cx="48" cy="46" r="11" fill="#ff9ac1"/><circle cx="152" cy="46" r="11" fill="#ff9ac1"/>
+      <ellipse cx="100" cy="170" rx="58" ry="34" fill="#fff" stroke="#2a2030" stroke-width="4"/>
+      <ellipse cx="52" cy="160" rx="16" ry="24" fill="#2a2030" transform="rotate(25 52 160)"/>
+      <ellipse cx="148" cy="160" rx="16" ry="24" fill="#2a2030" transform="rotate(-25 148 160)"/>
+      <ellipse cx="100" cy="96" rx="72" ry="62" fill="#fff" stroke="#2a2030" stroke-width="4"/>
+      <ellipse cx="70" cy="92" rx="17" ry="22" fill="#2a2030" transform="rotate(-20 70 92)"/>
+      <ellipse cx="130" cy="92" rx="17" ry="22" fill="#2a2030" transform="rotate(20 130 92)"/>
+      <circle cx="72" cy="90" r="8" fill="#fff"/><circle cx="128" cy="90" r="8" fill="#fff"/>
+      <circle cx="73" cy="91" r="4.5" fill="#2a2030"/><circle cx="127" cy="91" r="4.5" fill="#2a2030"/>
+      <circle cx="75" cy="88" r="1.8" fill="#fff"/><circle cx="125" cy="88" r="1.8" fill="#fff"/>
+      <circle cx="52" cy="118" r="10" fill="#ff7aa5" opacity=".6"/><circle cx="148" cy="118" r="10" fill="#ff7aa5" opacity=".6"/>
+      <ellipse cx="100" cy="110" rx="9" ry="6" fill="#2a2030"/>
+      <path id="mouth" d="M84 126 Q100 116 116 126" fill="none" stroke="#2a2030" stroke-width="4" stroke-linecap="round"/>
+      <path id="tear" d="M62 112 q-5 10 0 14 q5 -4 0 -14z" fill="#7fd6ff"/>
+    </svg>
+
+    <div id="ask">
+      <div class="bubble" id="bubble">
+        <span class="tag" id="tag"></span>
+        <p class="q" id="q"></p>
+      </div>
+      <div class="btns">
+        <button class="yes" id="yes">Haan 🥺</button>
+        <button class="no" id="no">Nahi 😤</button>
+      </div>
+      <div class="dots" id="dots" aria-hidden="true"></div>
+    </div>
+
+    <div class="final" id="final">
+      <h1>Ooooo Chaudhran, maan ja na... 🥹💕</h1>
+      <p>Nahi toh poora din manata rahunga! 🐼🌹</p>
+      <div class="names">bche · Kimz · Baby · Nonu · Pradhan ji · Mattoo · Ladoo · Kuchupuchu 💖</div>
+    </div>
+  </div>
+</main>
+
+<script>
+// Yahan sawal badal sakte ho: [pyaar ka naam, sawal]
+var STEPS = [
+  ["Kimi","naraz ho kya? 🥺"],
+  ["Kimz","itna sundar hokar koi naraz hota hai kya? 😍"],
+  ["Baby","cute toh lag rahi ho ab bhi, narazgi hata do na? 🥰"],
+  ["Nonu","ek chhoti si smile de do na? 😊"],
+  ["Ladoo","sweet insaan kbi nara ni hote? "],
+  ["Kuchupuchu","ek jaadu ki jhappi du kya? 🤗"]
+];
+var i = 0;
+var $ = function(id){return document.getElementById(id)};
+var HAPPY = "M80 124 Q100 144 120 124";
+var SAD = "M84 130 Q100 118 116 130";
+var MID = "M84 126 Q100 134 116 126";
+
+$("dots").innerHTML = STEPS.map(function(){return "<i></i>"}).join("");
+
+function show(){
+  var s = STEPS[i];
+  $("tag").textContent = s[0];
+  $("q").textContent = s[0] + ", " + s[1];
+  var d = $("dots").children;
+  for (var k = 0; k < d.length; k++) d[k].className = k <= i ? "on" : "";
+  var bub = $("bubble");
+  bub.classList.remove("swap"); void bub.offsetWidth; bub.classList.add("swap");
+  var half = STEPS.length / 2;
+  $("mouth").setAttribute("d", i < 3 ? SAD : (i < half + 1 ? MID : HAPPY));
+  $("tear").style.display = i < 3 ? "block" : "none";
+}
+
+function burst(){
+  for (var n = 0; n < 40; n++) setTimeout(heart, n * 60);
+}
+
+function next(){
+  i++;
+  if (i >= STEPS.length) {
+    $("ask").style.display = "none";
+    $("final").classList.add("show");
+    $("mouth").setAttribute("d", HAPPY);
+    $("tear").style.display = "none";
+    burst();
+    return;
+  }
+  show();
+}
+$("yes").onclick = next;
+$("no").onclick = next;
+
+function heart(){
+  var h = document.createElement("span");
+  var em = ["💖","💕","💗","🌸","🌷","💝","✨"];
+  h.textContent = em[Math.floor(Math.random() * em.length)];
+  h.style.left = Math.random() * 100 + "vw";
+  h.style.fontSize = (16 + Math.random() * 26) + "px";
+  h.style.animationDuration = (6 + Math.random() * 6) + "s";
+  $("hearts").appendChild(h);
+  setTimeout(function(){ h.remove() }, 13000);
+}
+setInterval(heart, 700);
+for (var j = 0; j < 8; j++) setTimeout(heart, j * 150);
+show();
+</script>
+</body>
+</html>
